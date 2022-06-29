@@ -21,6 +21,7 @@ public class Shooting : MonoBehaviour
     
     public void GunShoot()
     {
+        Debug.Log("Shoot");
         RaycastHit hit;
         Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
         if (Physics.Raycast(transform.position, forward, out hit))

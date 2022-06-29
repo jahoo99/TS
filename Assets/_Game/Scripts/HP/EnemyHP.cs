@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 public class EnemyHP : LivingEntity
 {
 
     public override void Die()
     {
-        Destroy(this.gameObject);
+        
+        PhotonNetwork.Destroy(this.gameObject);
     }
 }
