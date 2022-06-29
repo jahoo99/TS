@@ -1,14 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 public class LookingAtTarget : MonoBehaviour
 {
     [SerializeField] private float _radius;
     [SerializeField] private LayerMask _targetLayer;
     private Transform _nearestEnemy;
-    private bool _idented = false; //zeruje rotacje XD
-
+    private PhotonView _pv;
+    [SerializeField]private Shooting _shoot;
+    
+    
+    
+    
+    private void Awake()
+    {
+        _pv = GetComponent<PhotonView>();
+    }
+    private void Start()
+    {
+        if (!_pv.IsMine)
+        {
+            Destroy(_shoot);
+        }
+    }
     private void Update()
     {
 
