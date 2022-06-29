@@ -403,9 +403,9 @@ MonoBehaviour:
   _radius: 10
   _targetLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   _timeBetweenAttacks: 1
-  _bullet: {fileID: 0}
+  _bullet: {fileID: 6184050177063024807, guid: ac6ff223b0078ae4aafcad26f1338189, type: 3}
   _gunPoint: {fileID: 1247028219777689065}
 --- !u!1 &1247028221352137409
 GameObject:
