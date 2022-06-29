@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour
 {
     PhotonView PV;
     private GameObject _controller;
-    private float _randomSpawnPoint = 10f;
+    private float _randomSpawnPoint = 5f;
     private void Awake()
     {
         PV = GetComponent<PhotonView>();

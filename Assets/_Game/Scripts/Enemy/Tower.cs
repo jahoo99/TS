@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
+using System.IO;
 public class Tower : MonoBehaviour
 {
     [SerializeField] private float _radius = 10f;
@@ -20,7 +21,8 @@ public class Tower : MonoBehaviour
             transform.LookAt(hitColliders[0].gameObject.transform);
             if (!_alreadyAttacked)
             {
-              //  Instantiate(_bullet, _gunPoint.transform);
+                PhotonNetwork.Instantiate(Path.Combine("PhotonPrefab", "Bullet"), _gunPoint.transform.position, transform.rotation);
+               
                 _alreadyAttacked = true;
                 Invoke(nameof(Reset), _timeBetweenAttacks);
             }
