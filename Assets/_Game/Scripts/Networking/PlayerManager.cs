@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour
 {
     PhotonView PV;
     private GameObject _controller;
+    private float _randomSpawnPoint = 10f;
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
@@ -20,7 +21,8 @@ public class PlayerManager : MonoBehaviour
     }
     void CreateController()
     {
-        _controller = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefab", "PlayerController"), Vector3.zero, Quaternion.identity, 0, new object[] {PV.ViewID });
+
+        _controller = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefab", "PlayerController"), new Vector3(Random.Range(-_randomSpawnPoint, _randomSpawnPoint),0, Random.Range(-_randomSpawnPoint, _randomSpawnPoint)), Quaternion.identity, 0, new object[] {PV.ViewID });
 
     }
     public void Die()
